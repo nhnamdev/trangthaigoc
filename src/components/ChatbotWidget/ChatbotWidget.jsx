@@ -2,41 +2,64 @@ import { useEffect, useRef, useState } from "react";
 import "./ChatbotWidget.css";
 
 const quickReplies = [
-  "Tôi muốn tư vấn dịch vụ",
-  "Cho tôi xem bảng giá",
-  "Liên hệ với đội ngũ",
+  "BlindSpot AI TTG là gì?",
+  "5 điểm mù lớn nhất của ngành AI là gì?",
+  "Kiến trúc QSI → Signal Extraction → Scoring hoạt động ra sao?",
 ];
 
 function buildBotReply(message) {
   const normalized = message.toLowerCase();
 
-  if (normalized.includes("giá") || normalized.includes("bảng giá")) {
-    return "Tôi có thể gửi cho bạn thông tin gói dịch vụ và mức giá phù hợp. Bạn muốn tư vấn cho cá nhân hay doanh nghiệp?";
+  if (
+    normalized.includes("blindspot") ||
+    normalized.includes("ttg là gì") ||
+    normalized.includes("là gì")
+  ) {
+    return "BlindSpot AI TTG là hệ AI được xây dựng từ chuẩn Trạng Thái Gốc, tập trung soi ra điểm mù nhận thức thay vì chỉ trả lời theo dữ liệu số đông.";
   }
 
   if (
-    normalized.includes("liên hệ") ||
-    normalized.includes("đội ngũ") ||
-    normalized.includes("tư vấn")
+    normalized.includes("điểm mù") ||
+    normalized.includes("ngành ai") ||
+    normalized.includes("toàn cầu")
   ) {
-    return "Bạn có thể để lại nhu cầu ngay tại đây. Đội ngũ sẽ phản hồi nhanh để hỗ trợ bạn chi tiết hơn.";
+    return "Theo dữ liệu của web, 5 điểm mù lớn là: thiên lệch dữ liệu, vòng phản hồi ngầm, hộp đen quyết định, thiếu chuẩn gốc và mục tiêu thương mại.";
   }
 
-  return "Cảm ơn bạn đã nhắn tin. Tôi có thể hỗ trợ về dịch vụ, nội dung, hợp tác hoặc kết nối với đội ngũ tư vấn.";
+  if (
+    normalized.includes("qsi") ||
+    normalized.includes("signal") ||
+    normalized.includes("scoring") ||
+    normalized.includes("kiến trúc")
+  ) {
+    return "Kiến trúc lõi gồm 3 lớp: QSI Engine với 20 câu hỏi chuẩn, Signal Extraction chuyển dữ liệu thành 5 tín hiệu và Scoring Engine đo độ lệch trên TIME, FINANCE, REFLEX.";
+  }
+
+  if (
+    normalized.includes("tài liệu") ||
+    normalized.includes("pdf") ||
+    normalized.includes("docx")
+  ) {
+    return "Trang hiện đã gắn trực tiếp các tài liệu trong thư mục data, gồm giới thiệu nền tảng, BlindSpot AI TTG V1, bài phân tích điểm mù và các PDF dự án.";
+  }
+
+  return "Tôi có thể hỗ trợ bạn tìm hiểu BlindSpot AI TTG, chuẩn Trạng Thái Gốc, 5 điểm mù của ngành AI, hoặc kiến trúc QSI → Signal Extraction → Scoring.";
 }
 
 function ChatbotWidget() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
+  const [showQuickReplies, setShowQuickReplies] = useState(true);
   const [messages, setMessages] = useState([
     {
       id: "welcome",
       sender: "bot",
-      text: "Xin chào, tôi là AI Chat. Bạn có thể nhắn tin để được hỗ trợ ngay.",
+      text: "Xin chào, tôi là AI Chat của BlindSpot AI TTG. Bạn có thể chọn một câu hỏi mẫu hoặc nhắn trực tiếp để tìm hiểu dữ liệu trên website.",
     },
   ]);
   const chatbotRef = useRef(null);
   const messagesRef = useRef(null);
+  const skipOutsideCloseRef = useRef(false);
 
   useEffect(() => {
     function handleKeyDown(event) {
@@ -47,6 +70,10 @@ function ChatbotWidget() {
 
     function handleClickOutside(event) {
       if (!open || !chatbotRef.current) return;
+      if (skipOutsideCloseRef.current) {
+        skipOutsideCloseRef.current = false;
+        return;
+      }
       if (chatbotRef.current.contains(event.target)) return;
       setOpen(false);
     }
@@ -77,6 +104,7 @@ function ChatbotWidget() {
 
     setMessages((current) => [...current, userMessage]);
     setInput("");
+    setShowQuickReplies(false);
 
     window.setTimeout(() => {
       const botMessage = {
@@ -86,6 +114,11 @@ function ChatbotWidget() {
       };
       setMessages((current) => [...current, botMessage]);
     }, 500);
+  }
+
+  function handleQuickReplyClick(reply) {
+    skipOutsideCloseRef.current = true;
+    sendMessage(reply);
   }
 
   function handleSubmit(event) {
@@ -122,18 +155,20 @@ function ChatbotWidget() {
           ))}
         </div>
 
-        <div className="chatbot-quick-actions">
-          {quickReplies.map((reply) => (
-            <button
-              key={reply}
-              className="chatbot-chip"
-              type="button"
-              onClick={() => sendMessage(reply)}
-            >
-              {reply}
-            </button>
-          ))}
-        </div>
+        {showQuickReplies && (
+          <div className="chatbot-quick-actions">
+            {quickReplies.map((reply) => (
+              <button
+                key={reply}
+                className="chatbot-chip"
+                type="button"
+                onClick={() => handleQuickReplyClick(reply)}
+              >
+                {reply}
+              </button>
+            ))}
+          </div>
+        )}
 
         <form className="chatbot-form" onSubmit={handleSubmit}>
           <input

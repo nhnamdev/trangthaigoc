@@ -62,7 +62,8 @@
   border-bottom: 1px solid var(--line);
 }
 
-.podcast-list article a {
+.podcast-list article p {
+  margin: 0;
   font-size: 1.5rem;
   font-family: "Montserrat", sans-serif;
   line-height: 1.35;
@@ -81,7 +82,7 @@
 }
 
 @media (max-width: 639px) {
-  .podcast-list article a {
+  .podcast-list article p {
     font-size: 1.2rem;
   }
 }

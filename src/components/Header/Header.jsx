@@ -62,7 +62,7 @@ function Header({ navLinks }) {
     <header className="site-header" id="top">
       <div className="container header-inner">
         <a className="brand" href="#top" aria-label="Trang chủ">
-          <span className="brand-mark">FS</span>
+          <span className="brand-mark">TTG</span>
         </a>
 
         <nav className="desktop-nav" aria-label="Điều hướng chính">
@@ -71,11 +71,11 @@ function Header({ navLinks }) {
               {link.label}
             </a>
           ))}
-          <a href="#membership" className="btn btn-secondary">
-            Đăng nhập
+          <a href="#sponsor" className="btn btn-secondary">
+            Tài liệu gốc
           </a>
           <a href="#membership" className="btn">
-            Trở thành thành viên
+            Đăng ký tư vấn
           </a>
         </nav>
 
@@ -134,11 +134,11 @@ function Header({ navLinks }) {
               {link.label}
             </a>
           ))}
-          <a href="#membership" onClick={closeMenu}>
-            Đăng nhập
+          <a href="#sponsor" onClick={closeMenu}>
+            Tài liệu gốc
           </a>
           <a href="#membership" className="btn" onClick={closeMenu}>
-            Trở thành thành viên
+            Đăng ký tư vấn
           </a>
         </div>
       </div>

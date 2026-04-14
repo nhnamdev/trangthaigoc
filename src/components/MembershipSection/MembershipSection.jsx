@@ -5,14 +5,14 @@ function MembershipSection({ memberBenefits }) {
     <section className="section premium" id="membership">
       <div className="container premium-hero">
         <div>
-          <p className="eyebrow">Thành viên FS</p>
+          <p className="eyebrow">Ứng dụng thực tiễn</p>
           <h2>
-            Suy nghĩ tốt hơn. Tiến xa hơn trong cuộc sống và sự nghiệp. Tìm đúng
-            trọng tâm của bạn.
+            BlindSpot AI TTG được mô tả như công cụ phát hiện lệch nhận thức, không
+            phải một AI chỉ trả lời theo quán tính.
           </h2>
         </div>
         <a className="btn btn-light" href="#membership">
-          Trở thành thành viên
+          Kết nối tư vấn
         </a>
       </div>
 

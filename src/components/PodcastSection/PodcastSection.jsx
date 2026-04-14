@@ -1,30 +1,28 @@
-import sharedImage from "../../../image/image.png";
 import "./PodcastSection.css";
 
-function PodcastSection({ podcastEpisodes, podcastPlatforms }) {
+function PodcastSection({ blindSpotCard, podcastEpisodes, podcastPlatforms }) {
   return (
     <section className="section section-alt" id="podcast">
       <div className="container podcast-grid">
         <div className="podcast-card">
-          <img src={sharedImage} alt="Micro podcast trong phòng thu" />
-          <blockquote>
-            "Mỗi tập đều chứa mật độ tri thức thuộc hàng cao nhất trong thế giới
-            podcast."
-          </blockquote>
-          <p>
-            The Knowledge Project khám phá cách những con người xuất sắc suy nghĩ,
-            ra quyết định và giải quyết vấn đề.
-          </p>
+          <img src={blindSpotCard.image} alt={blindSpotCard.imageAlt} />
+          <blockquote>"{blindSpotCard.quote}"</blockquote>
+          <p>{blindSpotCard.description}</p>
           <div className="podcast-actions">
-            <a className="btn btn-secondary" href="#podcast">
-              Nghe trên Apple Podcasts
+            <a
+              className="btn btn-secondary"
+              href={blindSpotCard.primaryAction.href}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {blindSpotCard.primaryAction.label}
             </a>
             <details>
-              <summary>Thêm lựa chọn</summary>
+              <summary>5 điểm mù chính</summary>
               <ul>
                 {podcastPlatforms.map((platform) => (
                   <li key={platform}>
-                    <a href="#podcast">{platform}</a>
+                    <span>{platform}</span>
                   </li>
                 ))}
               </ul>
@@ -33,14 +31,14 @@ function PodcastSection({ podcastEpisodes, podcastPlatforms }) {
         </div>
 
         <div className="podcast-list">
-          <h2>Các tập podcast gần đây:</h2>
+          <h2>5 điểm mù lớn nhất trong ngành AI toàn cầu</h2>
           {podcastEpisodes.map((episode) => (
             <article key={episode}>
-              <a href="#podcast">{episode}</a>
+              <p>{episode}</p>
             </article>
           ))}
-          <a className="text-link" href="#podcast">
-            Xem tất cả các tập
+          <a className="text-link" href={blindSpotCard.primaryAction.href} target="_blank" rel="noreferrer">
+            Mở tài liệu phân tích đầy đủ
           </a>
         </div>
       </div>

@@ -9,11 +9,14 @@ import ChatbotWidget from "../../components/ChatbotWidget/ChatbotWidget.jsx";
 import {
   bookFeatures,
   footerMenus,
+  heroContent,
   memberBenefits,
   navLinks,
   podcastEpisodes,
   podcastPlatforms,
   pressLogos,
+  primaryResource,
+  blindSpotCard,
 } from "../../data/homePageData.js";
 import "./HomePage.css";
 
@@ -27,9 +30,10 @@ function HomePage() {
       <Header navLinks={navLinks} />
 
       <main id="main" className="home-page">
-        <HeroSection pressLogos={pressLogos} />
-        <SponsorStrip />
+        <HeroSection heroContent={heroContent} pressLogos={pressLogos} />
+        <SponsorStrip primaryResource={primaryResource} />
         <PodcastSection
+          blindSpotCard={blindSpotCard}
           podcastEpisodes={podcastEpisodes}
           podcastPlatforms={podcastPlatforms}
         />
