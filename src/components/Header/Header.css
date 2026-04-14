@@ -1,0 +1,132 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(236, 232, 224, 0.85);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 76px;
+  gap: 24px;
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.desktop-nav > a:not(.btn) {
+  font-size: 0.98rem;
+}
+
+.mobile-actions,
+.search-panel,
+.mobile-menu {
+  display: none;
+}
+
+.icon-button,
+.menu-toggle {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.icon-search {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  position: relative;
+}
+
+.icon-search::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 2px;
+  background: currentColor;
+  right: -7px;
+  bottom: -3px;
+  transform: rotate(45deg);
+  transform-origin: center;
+}
+
+.menu-toggle {
+  display: grid;
+  gap: 4px;
+}
+
+.menu-toggle span:not(.sr-only) {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+}
+
+.search-form {
+  display: flex;
+  gap: 12px;
+}
+
+.search-form input {
+  flex: 1;
+  min-height: 50px;
+  padding: 0 16px;
+  border: 1px solid #ddd9d2;
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+@media (max-width: 999px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .search-panel.active,
+  .mobile-menu.active {
+    display: block;
+  }
+
+  .search-panel {
+    border-top: 1px solid var(--line);
+    padding: 16px 0 18px;
+    background: var(--white);
+  }
+
+  .mobile-menu {
+    background: var(--white);
+    border-top: 1px solid var(--line);
+  }
+
+  .mobile-menu-inner {
+    display: grid;
+    gap: 16px;
+    padding: 18px 0 24px;
+  }
+}
+
+@media (max-width: 639px) {
+  .header-inner {
+    min-height: 72px;
+  }
+
+  .search-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

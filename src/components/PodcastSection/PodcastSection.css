@@ -1,0 +1,87 @@
+.podcast-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 86px;
+  align-items: start;
+}
+
+.podcast-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.podcast-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.podcast-card blockquote {
+  margin: 26px 0 12px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.podcast-card p {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.35;
+}
+
+.podcast-actions {
+  display: grid;
+  gap: 14px;
+  margin-top: 16px;
+  width: 100%;
+}
+
+.podcast-actions details summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.podcast-actions ul {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.podcast-list h2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: 1.8rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.podcast-list article {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.podcast-list article a {
+  font-size: 1.5rem;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.35;
+}
+
+.podcast-list .text-link {
+  display: inline-block;
+  margin-top: 26px;
+}
+
+@media (max-width: 999px) {
+  .podcast-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 639px) {
+  .podcast-list article a {
+    font-size: 1.2rem;
+  }
+}
