@@ -2,11 +2,25 @@ const menuToggle = document.querySelector(".menu-toggle");
 const mobileMenu = document.querySelector("#mobile-menu");
 const searchToggle = document.querySelector(".search-toggle");
 const searchPanel = document.querySelector("#search-panel");
+const chatbotToggle = document.querySelector("#chatbot-toggle");
+const chatbotBubble = document.querySelector("#chatbot-bubble");
 
 function setExpanded(button, value) {
   if (button) {
     button.setAttribute("aria-expanded", String(value));
   }
+}
+
+function closeChatbot() {
+  if (!chatbotBubble) return;
+  chatbotBubble.hidden = true;
+  setExpanded(chatbotToggle, false);
+}
+
+function openChatbot() {
+  if (!chatbotBubble) return;
+  chatbotBubble.hidden = false;
+  setExpanded(chatbotToggle, true);
 }
 
 function closeSearch() {
@@ -65,15 +79,36 @@ if (menuToggle) {
   });
 }
 
+if (chatbotToggle) {
+  chatbotToggle.addEventListener("click", () => {
+    const active = chatbotBubble && !chatbotBubble.hidden;
+    if (active) {
+      closeChatbot();
+    } else {
+      openChatbot();
+    }
+  });
+}
+
 document.querySelectorAll('.mobile-menu a[href^="#"]').forEach((link) => {
   link.addEventListener("click", () => {
     closeMenu();
   });
 });
 
+document.addEventListener("click", (event) => {
+  if (!chatbotToggle || !chatbotBubble) return;
+  const target = event.target;
+  if (!(target instanceof Element)) return;
+  if (chatbotBubble.hidden) return;
+  if (chatbotBubble.contains(target) || chatbotToggle.contains(target)) return;
+  closeChatbot();
+});
+
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeMenu();
     closeSearch();
+    closeChatbot();
   }
 });
