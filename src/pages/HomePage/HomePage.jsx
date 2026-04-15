@@ -4,12 +4,14 @@ import SponsorStrip from "../../components/SponsorStrip/SponsorStrip.jsx";
 import PodcastSection from "../../components/PodcastSection/PodcastSection.jsx";
 import BooksSection from "../../components/BooksSection/BooksSection.jsx";
 import MembershipSection from "../../components/MembershipSection/MembershipSection.jsx";
+import InvestorLegalSection from "../../components/InvestorLegalSection/InvestorLegalSection.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
 import ChatbotWidget from "../../components/ChatbotWidget/ChatbotWidget.jsx";
 import {
   bookFeatures,
   footerMenus,
   heroContent,
+  investorLegalContent,
   memberBenefits,
   navLinks,
   podcastEpisodes,
@@ -39,6 +41,7 @@ function HomePage() {
         />
         <BooksSection bookFeatures={bookFeatures} />
         <MembershipSection memberBenefits={memberBenefits} />
+        <InvestorLegalSection investorLegalContent={investorLegalContent} />
       </main>
 
       <Footer footerMenus={footerMenus} />

@@ -1,0 +1,79 @@
+.investor-legal-section {
+  padding-top: 96px;
+  padding-bottom: 112px;
+  background: linear-gradient(180deg, #faf9f7 0%, #ffffff 100%);
+}
+
+.investor-legal-header {
+  margin-bottom: 40px;
+}
+
+.investor-legal-header h2 {
+  margin: 0 0 16px;
+  max-width: 920px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  font-size: clamp(2.1rem, 5.2vw, 4rem);
+}
+
+.investor-legal-header p:last-child {
+  margin: 0;
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+.investor-legal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.investor-legal-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 100%;
+  padding: 32px 28px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.investor-legal-card span {
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.investor-legal-card h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.investor-legal-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.investor-legal-card .text-link {
+  margin-top: auto;
+}
+
+@media (max-width: 999px) {
+  .investor-legal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 639px) {
+  .investor-legal-section {
+    padding-top: 72px;
+    padding-bottom: 80px;
+  }
+}

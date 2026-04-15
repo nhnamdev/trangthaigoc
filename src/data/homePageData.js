@@ -5,7 +5,7 @@ import standardImage from "../../data/z7723542211056_d472097c8c692161b221ef5a4a7
 import overviewDocx from "../../data/thongtin.docx";
 import blindSpotDocx from "../../data/BlindSpot AI TTG-V1.docx";
 import industryDocx from "../../data/diemmutrongnganhaitoancau.docx";
-import projectPdf from "../../data/DỰ ÁN AI TRẠNG THÁI GỐC.pdf";
+import projectPdf from "../../data/Dự ÁN AI TRẠNG THÁI GỐC.pdf";
 import rootPdf from "../../data/TRANG THAI GOC_file in.pdf";
 import phonePdf from "../../data/0110882072-C26TST8.pdf";
 
@@ -13,7 +13,7 @@ export const navLinks = [
   { href: "#newsletter", label: "Tổng quan" },
   { href: "#sponsor", label: "Tài liệu" },
   { href: "#podcast", label: "Điểm mù AI" },
-  { href: "#articles", label: "Kiến trúc" },
+  { href: "#investor-legal", label: "NHÀ ĐẦU TƯ VÀ PHÁP LÝ" },
 ];
 
 export const pressLogos = [
@@ -114,6 +114,39 @@ export const memberBenefits = [
   "Mở đường cho việc xây app, system, platform và tiến tới standard.",
 ];
 
+export const investorLegalContent = {
+  eyebrow: "Nhà đầu tư và pháp lý",
+  title: "Tổng hợp các tệp cốt lõi phục vụ thuyết trình, thẩm định và đối chiếu hồ sơ pháp lý.",
+  description:
+    "Section này gom những tài liệu đang xuất hiện trong project để nhà đầu tư hoặc bộ phận pháp lý có thể đi thẳng vào hồ sơ cần xem.",
+  cards: [
+    {
+      kicker: "Investor deck",
+      title: "Hồ sơ dự án BlindSpot AI TTG",
+      description:
+        "Bản PDF tổng quan phục vụ cho việc trình bày mô hình, định vị sản phẩm và tầm nhìn phát triển.",
+      href: projectPdf,
+      cta: "Mở file PDF",
+    },
+    {
+      kicker: "Pháp lý",
+      title: "Tài liệu PDF bổ sung",
+      description:
+        "Tệp PDF hiện có trong data, phù hợp để đối chiếu thông tin phụ trợ cho hồ sơ và thẩm tra nội dung.",
+      href: phonePdf,
+      cta: "Xem tệp phụ lục",
+    },
+    {
+      kicker: "Reference",
+      title: "Tệp gốc Trạng Thái Gốc",
+      description:
+        "Bản PDF gốc dựa trên hệ quy chiếu TTG, dùng để kiểm tra ngữ cảnh và cấu trúc từ nguyên bản.",
+      href: rootPdf,
+      cta: "Mở tài liệu gốc",
+    },
+  ],
+};
+
 export const footerMenus = [
   {
     title: "Tài liệu",
@@ -136,7 +169,7 @@ export const footerMenus = [
     links: [
       { label: "Tổng quan nền tảng", href: "#newsletter" },
       { label: "5 điểm mù AI", href: "#podcast" },
-      { label: "Kiến trúc hệ thống", href: "#articles" },
+      { label: "Nhà đầu tư và pháp lý", href: "#investor-legal" },
     ],
   },
   {
@@ -152,6 +185,7 @@ export const footerMenus = [
     links: [
       { label: "TXID_ROOT", href: "#top" },
       { label: "Chuẩn TTG", href: "#articles" },
+      { label: "Nhà đầu tư", href: "#investor-legal" },
       { label: "AI Chat hỗ trợ", href: "#top" },
     ],
   },
