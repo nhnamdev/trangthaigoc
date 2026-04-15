@@ -5,7 +5,7 @@ import standardImage from "../../data/z7723542211056_d472097c8c692161b221ef5a4a7
 import overviewDocx from "../../data/thongtin.docx";
 import blindSpotDocx from "../../data/BlindSpot AI TTG-V1.docx";
 import industryDocx from "../../data/diemmutrongnganhaitoancau.docx";
-import projectPdf from "../../data/Dự ÁN AI TRẠNG THÁI GỐC.pdf";
+import projectPdf from "../../data/du-an-ai-trang-thai-goc.pdf";
 import rootPdf from "../../data/TRANG THAI GOC_file in.pdf";
 import phonePdf from "../../data/0110882072-C26TST8.pdf";
 
